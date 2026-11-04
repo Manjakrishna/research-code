@@ -1,0 +1,74 @@
+# Configuration for Explainable Hybrid CNN-ViT Brain Tumor Classification
+
+project:
+  name: "Explainable-Hybrid-CNN-ViT-Brain-Tumor"
+  version: "1.0.0"
+  description: "An Explainable Hybrid CNN–Vision Transformer Framework for Multi-Class Brain Tumor Classification"
+
+dataset:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  split_ratios:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+  classes:
+    - "glioma"
+    - "meningioma"
+    - "pituitary"
+    - "notumor"
+  num_classes: 4
+  image_size: 224
+  channels: 3
+  # Standard ImageNet normalization parameters
+  normalization:
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  augmentation:
+    horizontal_flip_prob: 0.5
+    rotation_degrees: 15
+    affine_scale: [0.95, 1.05]
+    color_jitter:
+      brightness: 0.1
+      contrast: 0.1
+
+model:
+  cnn_backbone: "resnet18"       # Options: "resnet18", "resnet50"
+  cnn_pretrained: true
+  cnn_feature_dim: 512           # 512 for resnet18, 2048 for resnet50
+  
+  vit_backbone: "vit_b_16"       # torchvision Vision Transformer Base 16
+  vit_pretrained: true
+  vit_embedding_dim: 768
+  
+  fusion:
+    type: "cross_attention"      # Options: "cross_attention", "concatenation", "gated"
+    projection_dim: 512
+    num_heads: 4
+    dropout: 0.3
+    hidden_dim: 256
+    num_classes: 4
+
+training:
+  seed: 42
+  batch_size: 4                  # Memory-safe for MacBook Air M1 (MPS/CPU)
+  num_workers: 0                 # 0 is recommended on macOS to prevent multiprocessing fork deadlocks
+  epochs: 15
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler: "cosine"            # "cosine", "plateau", "step"
+  early_stopping_patience: 5
+  device: "auto"                 # "auto" -> mps > cuda > cpu
+  checkpoint_dir: "checkpoints"
+  checkpoint_filename: "best_hybrid_model.pth"
+  save_every_epoch: false
+
+evaluation:
+  test_batch_size: 4
+  metrics_dir: "results/metrics"
+  figures_dir: "results/figures"
+
+explainability:
+  gradcam_target_layer: "layer4" # Last convolutional block of ResNet
+  vit_attention_layer: -1        # Last transformer encoder layer
+  colormap: "JET"

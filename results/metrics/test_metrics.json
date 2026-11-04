@@ -1,0 +1,76 @@
+{
+    "test_samples": 5,
+    "accuracy": 0.2,
+    "macro_precision": 0.05,
+    "macro_recall": 0.25,
+    "macro_f1": 0.08333333333333333,
+    "weighted_precision": 0.04,
+    "weighted_recall": 0.2,
+    "weighted_f1": 0.06666666666666667,
+    "roc_auc_macro": 0.9166666666666667,
+    "classification_report": {
+        "Glioma": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 1.0
+        },
+        "Meningioma": {
+            "precision": 0.2,
+            "recall": 1.0,
+            "f1-score": 0.3333333333333333,
+            "support": 1.0
+        },
+        "Pituitary Tumor": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+        },
+        "No Tumor": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 1.0
+        },
+        "accuracy": 0.2,
+        "macro avg": {
+            "precision": 0.05,
+            "recall": 0.25,
+            "f1-score": 0.08333333333333333,
+            "support": 5.0
+        },
+        "weighted avg": {
+            "precision": 0.04,
+            "recall": 0.2,
+            "f1-score": 0.06666666666666667,
+            "support": 5.0
+        }
+    },
+    "confusion_matrix": [
+        [
+            0,
+            1,
+            0,
+            0
+        ],
+        [
+            0,
+            1,
+            0,
+            0
+        ],
+        [
+            0,
+            2,
+            0,
+            0
+        ],
+        [
+            0,
+            1,
+            0,
+            0
+        ]
+    ]
+}

@@ -1,0 +1,15 @@
+image_path,label_id,label_name
+data/mock_dataset/pituitary/mock_pituitary_004.png,2,Pituitary Tumor
+data/mock_dataset/notumor/mock_notumor_003.png,3,No Tumor
+data/mock_dataset/glioma/mock_glioma_000.png,0,Glioma
+data/mock_dataset/meningioma/mock_meningioma_000.png,1,Meningioma
+data/mock_dataset/pituitary/mock_pituitary_003.png,2,Pituitary Tumor
+data/mock_dataset/pituitary/mock_pituitary_000.png,2,Pituitary Tumor
+data/mock_dataset/glioma/mock_glioma_004.png,0,Glioma
+data/mock_dataset/notumor/mock_notumor_000.png,3,No Tumor
+data/mock_dataset/glioma/mock_glioma_003.png,0,Glioma
+data/mock_dataset/meningioma/mock_meningioma_004.png,1,Meningioma
+data/mock_dataset/meningioma/mock_meningioma_005.png,1,Meningioma
+data/mock_dataset/glioma/mock_glioma_001.png,0,Glioma
+data/mock_dataset/notumor/mock_notumor_005.png,3,No Tumor
+data/mock_dataset/meningioma/mock_meningioma_002.png,1,Meningioma
