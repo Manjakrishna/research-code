@@ -32,4 +32,4 @@ if old not in s:
 
 p.write_text(s.replace(old, new, 1))
 print("SUCCESS: app/main.py updated")
-PY
+
