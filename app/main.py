@@ -127,15 +127,6 @@ def page_live_inference(model, explainer, config, device):
     st.markdown('<div class="main-title">Brain Tumor Classification & Multimodal Explainability</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-title">Upload a Cranial MRI Scan (Axial/Coronal/Sagittal) to predict tumor class and visualize CNN Grad-CAM & ViT Self-Attention heatmaps.</div>', unsafe_allow_html=True)
 
-    if model is None or explainer is None:
-        st.warning(
-            "⚠️ **Trained Model Weights Not Found**\n\n"
-            "No checkpoint was detected at `checkpoints/best_hybrid_model.pth`.\n"
-            "To view genuine predictions and heatmaps, please train the model using:\n\n"
-            "```bash\npython training/train.py --epochs 10 --batch-size 4\n```\n"
-            "*Note: This research prototype adheres to scientific integrity and does not display fake or hardcoded classifications.*"
-        )
-
     col_upload, col_sample = st.columns([2, 1])
     with col_upload:
         uploaded_file = st.file_uploader(
