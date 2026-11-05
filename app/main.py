@@ -1,4 +1,3 @@
-cd "$HOME/Downloads/xebia project"
 
 python - <<'PY'
 from pathlib import Path
