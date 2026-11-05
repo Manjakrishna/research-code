@@ -135,7 +135,6 @@ def page_live_inference(model, explainer, config, device):
             "```bash\npython training/train.py --epochs 10 --batch-size 4\n```\n"
             "*Note: This research prototype adheres to scientific integrity and does not display fake or hardcoded classifications.*"
         )
-        return
 
     col_upload, col_sample = st.columns([2, 1])
     with col_upload:
@@ -172,7 +171,7 @@ def page_live_inference(model, explainer, config, device):
                 image_to_process = Image.open(gen_paths[0]).convert("RGB")
                 st.success(f"Generated sample: {gen_paths[0].name}")
 
-    if image_to_process is not None:
+    if image_to_process is not None and model is not None and explainer is not None:
         st.markdown("---")
         with st.spinner("Analyzing MRI with Hybrid CNN-ViT Model and extracting visual explanations..."):
             result = explainer.explain(image_to_process)
