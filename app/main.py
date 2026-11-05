@@ -1,5 +1,3 @@
-
-python - <<'PY'
 from pathlib import Path
 
 p = Path("app/main.py")
